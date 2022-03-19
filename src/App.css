@@ -1,38 +1,49 @@
-.App {
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-y: hidden;
+}
+
+.giffyApp {
+  text-align: center;
+  overflow: auto;
+  /* overflow-y: scroll; */
+  height: 90vh;
+}
+
+header {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 5px;
+  border-bottom: 1px solid;
+  border-color: rgba(194, 224, 255, 0.08);
+}
+.search-container {
+  width: 500px;
+}
+.conditional-text {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.gifs-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /* overflow-y: scroll; */
 }
-
-.App-link {
-  color: #61dafb;
+.gif-column {
+  /* flex: 50%; */
+  padding: 0 4px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.gif-container {
+  position: relative;
+  width: fit-content;
+}
+.gif-container:hover {
+  cursor: pointer;
 }
