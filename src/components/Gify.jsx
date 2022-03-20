@@ -1,10 +1,16 @@
 import { useContext, useRef, useState } from 'react';
-import { Box, CircularProgress, TextField, useMediaQuery } from '@mui/material';
+import {
+  Box,
+  CircularProgress,
+  TextField,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
 
 import Gif from './common/Gif';
 
 import { ThemeSwitch } from './common/ThemeSwitch';
-import useImageSearch from 'utils/hooks/use-image-search';
+import useImageSearch from 'utils/hooks/useImageSearch';
 import useDebounce from 'utils/hooks/useDebounce';
 import { scrolledToBottom } from 'utils/helpers/scrolled-to-bottom';
 import { ColorModeContext } from 'Context';
@@ -42,6 +48,12 @@ const Gify = () => {
   return (
     <>
       <header>
+        <Typography
+          sx={{ fontWeight: 'bold', marginRight: '16px' }}
+          variant="h4"
+        >
+          G
+        </Typography>
         <Box sx={{ paddingRight: '10px' }} className="search-container">
           <TextField
             fullWidth
@@ -64,9 +76,9 @@ const Gify = () => {
         <h3>{debouncedQuery.length ? debouncedQuery : 'Trending Gifs'}</h3>
       </Box>
       <Box className="giffyApp" ref={containerRef} onScroll={handleScroll}>
-        <Box className="gifs-container">
+        <Box className="images-container">
           {imagesData.map((imageArray, index) => (
-            <Box className="gif-column" key={`imageContainer-${index}`}>
+            <Box className="image-column" key={`imageContainer-${index}`}>
               {imageArray.map(({ images, id, title }, index) => (
                 <Gif
                   key={`id-${index}`}

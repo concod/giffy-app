@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 import { chunkArray } from 'utils/helpers/chunk-array'
+import { fillEmptyArray } from 'utils/helpers/fill-empty-array'
+
+
 
 const useImageSearch = ({
     debouncedQuery = '',
@@ -37,14 +40,12 @@ const useImageSearch = ({
             setImagesData(prevState => {
                 if (data.data.data.length) {
                     const chunkedArray = chunkArray(data.data.data, 3)
-                    const newArray = prevState.length ? [...prevState] : [[], [], []]
+                    const newArray = prevState.length ? [...prevState] : fillEmptyArray([], 3)
                     chunkedArray.forEach((arr, index) => {
                         return newArray[index] = newArray[index].concat(chunkedArray[index])
                     })
                     return newArray
                 } else return []
-
-
             })
         }).catch(err => {
             setIsLoading(false)
